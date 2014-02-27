@@ -1,5 +1,5 @@
 By the end of this document, the reader should understand:
 
-* asdf
-* asdf
-* asdf
+* What are custom test helpers
+* Sync vs Async test helpers
+* How to register their custom test helpers

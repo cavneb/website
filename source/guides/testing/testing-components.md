@@ -1,43 +1,63 @@
-By the end of this document, the reader should understand:
-
-* ??? input from @ryanflorence is requested
+Components can be testing using the `moduleForComponent` helper. Here is a simple Ember component:
 
 ```javascript
-moduleForComponent('x-foo', 'moduleForComponent with x-foo');
+App.PrettyColorComponent = Ember.Component.extend({
+  classNames: ['pretty-color'],
+  attributeBindings: ['style'],
+  style: function() {
+    return 'color: ' + this.get('name') + ';';
+  }.property('name')
+});
+```
 
-test('renders', function() {
-  expect(2);
-  var component = this.subject();
+with an accompanying Handlebars template:
+
+```handlebars
+Pretty Color: {{name}}
+```
+
+Unit testing this component can be done as follows:
+
+```javascript
+moduleForComponent('pretty-color', 'moduleForComponent with pretty-color');
+
+test('renders the template', function() {
+  expect(3);
+
+  // the context for the component
+  var context = { name: 'green' };
+
+  // the handlebars template used for the view rendering the component
+  var template = "{{pretty-color name=name}}".compile();
+
+  // build the component using the subject helper along with the content
+  var component = this.subject({ template: template }, context);
+
+  equal(component.state, 'preRender');
+
+  // render the component to the view
+  this.append();
+
+  equal(component.state, 'inDOM');
+
+  // assert that the content rendered to the DOM is correct
+  equal(component.$().html(), 'Pretty Color: green');
+});
+```
+
+or more simply:
+
+```javascript
+moduleForComponent('pretty-color', 'moduleForComponent with pretty-color');
+
+test('renders the template', function() {
+  expect(3);
+  var component = this.subject({
+    template: "{{pretty-color name=name}}".compile()
+  }, { name: 'green' });
   equal(component.state, 'preRender');
   this.append();
   equal(component.state, 'inDOM');
-});
-
-test('yields', function() {
-  expect(2);
-  var component = this.subject({
-    template: "yield me".compile()
-  });
-  equal(component.state, 'preRender');
-  this.append();
-  equal(component.state, 'inDOM');
-});
-
-test('can lookup components in its template', function() {
-  expect(1);
-  var component = this.subject({
-    template: "{{x-foo id='yodawg-i-heard-you-liked-x-foo-in-ur-x-foo'}}".compile()
-  });
-  this.append();
-  equal(component.state, 'inDOM');
-});
-
-test('clears out views from test to test', function() {
-  expect(1);
-  var component = this.subject({
-    template: "{{x-foo id='yodawg-i-heard-you-liked-x-foo-in-ur-x-foo'}}".compile()
-  });
-  this.append();
-  ok(true, 'rendered without id already being used from another test');
+  equal(component.$().html(), 'Pretty Color: green');
 });
 ```

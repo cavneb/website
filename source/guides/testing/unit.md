@@ -1,26 +1,46 @@
-Unit tests are generally used to test a small piece of code and ensure that it is doing what was intended. Unline integration tests, they are narrow in scope and do not require the Ember application to be running.
+Unit tests are generally used to test a small piece of code and ensure that it is doing what was
+intended. Unlike integration tests, they are narrow in scope and do not require the Ember
+application to be running.
 
-***To perform unit tests, the application must be written using modules. ______EXPLAIN______***
+### Globals vs Modules
 
-***Explain that ember qunit is used to perform unit tests, but it can be converted to other testing frameworks***
+In the past, it has been difficult to test portions of your Ember application without loading the
+entire application. By having your application written using modules (CJS, AMD, etc), you are able
+to require the code that is to be tested without having to pluck the pieces off of your global
+application.
 
-### Unit Helpers
+### Unit Testing Helpers
+
+[Ember-QUnit](https://github.com/emberjs/ember-qunit) is the default *unit* testing helper suite for
+Ember. It can and should be used as a template for other test framework helpers.
+
+* [Ember-QUnit](https://github.com/emberjs/ember-qunit) - Unit test helpers written for QUnit
+* [Ember-Mocha](#) - Unit test helpers written for Mocha (to be written)
+* [Ember-Jasmine](#) - Unit test helpers written for Jasmine (to be written)
+
+***The unit testing section of this guide will use the Ember-QUnit library, but the concepts and
+examples should translate easily to other frameworks.***
+
+### Available Helpers
+
+By including [Ember-QUnit](), you will have access to a number of test helpers.
 
 * `moduleFor(fullName, description, callbacks, delegate)`
- - Lorem ipsum dolor.
+ - description goes here ....
 * `moduleForComponent(fullName, description, callbacks)`
- - Lorem ipsum dolor.
-* `moduleForModel(fullName, description, callbacks)`
- - Lorem ipsum dolor.
+ - description goes here ....
+* `test`
+ - description goes here ....
+* `setResolver`
+ - description goes here ....
 
-### Registry
+### Unit Testing Global Applications
 
-***Explain this:***
+You are still able to use the unit test helpers on your global applications. To do so, you
+must globalize the qunit helpers in your test setup:
 
 ```javascript
-var registry = {
-  'component:x-foo': Ember.Component.extend(),
-  'route:foo':       Ember.Route.extend(),
-  'controller:bar':  Ember.Controller.extend()
-};
+emq.globalize();
 ```
+
+This will make the above helpers available globally.

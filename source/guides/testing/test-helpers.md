@@ -1,11 +1,3 @@
-By the end of this document, the reader should understand:
-
-* What are custom test helpers
-* Sync vs Async test helpers
-* How to register their custom test helpers
-
----
-
 Ember includes several helpers to facilitate integration testing. These helpers are "aware" of (and wait for) asynchronous behavior within your application, making it much easier to write deterministic tests.
 
 ### Interaction Helpers
@@ -20,15 +12,6 @@ Ember includes several helpers to facilitate integration testing. These helpers 
   - Clicks an element and triggers any actions triggered by the element's `click` event and returns a promise that fulfills when all resulting async behavior is complete.
 * `keyEvent(selector, type, keyCode)`
   - Simulates a key event type, e.g. `keypress`, `keydown`, `keyup` with the desired keyCode on element found by the selector.
-
-### Location Helpers
-
-* `currentPath`
- - Returns the current path.
-* `currentRouteName`
- - Returns the currently active route name.
-* `currentURL`
- - Returns the current URL.
 
 ### Custom Test Helpers
 
@@ -79,3 +62,13 @@ Ember.Test.registerAsyncHelper('addContact',
 // addContact("Bob");
 // addContact("Dan");
 ```
+
+#### Example
+
+Here is an example of using both `registerHelper` and `registerAsyncHelper`.
+
+<a class="jsbin-embed" href="http://jsbin.com/yokiy/2/embed?output">Custom Test Helpers</a>
+
+Here's another example:
+
+<a class="jsbin-embed" href="http://jsbin.com/yiven/2/embed?output">Custom Test Helpers</a>

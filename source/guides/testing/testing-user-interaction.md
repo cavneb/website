@@ -27,9 +27,9 @@ test("creating a post displays the new post", function(){
 });
 ```
 
-TODO: 
+#### Example
 
-1. Write test that asserts location using each of the 3 location helpers
-2. Write test that uses each of interaction helpers
-3. Write a custom non-async helper and test with it
-4. Write a custom async helper and test with it
+Here is an example of an integration test:
+
+<a class="jsbin-embed" href="http://jsbin.com/yokiy/2/embed?output">Custom Test Helpers</a>
+<script src="http://static.jsbin.com/js/embed.js"></script>

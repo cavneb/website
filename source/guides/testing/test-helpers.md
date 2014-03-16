@@ -12,6 +12,8 @@ Ember includes several helpers to facilitate integration testing. These helpers 
   - Clicks an element and triggers any actions triggered by the element's `click` event and returns a promise that fulfills when all resulting async behavior is complete.
 * `keyEvent(selector, type, keyCode)`
   - Simulates a key event type, e.g. `keypress`, `keydown`, `keyup` with the desired keyCode on element found by the selector.
+* `triggerEvent(selector, type, options)`
+  - Triggers the given event type on the element identified by the provided selector.
 
 ### Custom Test Helpers
 
@@ -66,9 +68,5 @@ Ember.Test.registerAsyncHelper('addContact',
 #### Example
 
 Here is an example of using both `registerHelper` and `registerAsyncHelper`.
-
-<a class="jsbin-embed" href="http://jsbin.com/yokiy/2/embed?output">Custom Test Helpers</a>
-
-Here's another example:
 
 <a class="jsbin-embed" href="http://jsbin.com/yiven/2/embed?output">Custom Test Helpers</a>

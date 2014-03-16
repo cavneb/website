@@ -1,6 +1,6 @@
 Testing routes can be done both via integration and unit tests. Integration tests will likely provide better tests for routes because the routes typically are used to perform transitions and load data, all of which is more easily tested via integration tests.
 
-Unit tests are possible using `ember-qunit`. A common example of what may be tested in a route would be actions which are bubbled up to from nested routes.
+Unit tests are possible using `moduleFor`. A common example of what may be tested in a route would be actions which are bubbled up to from nested routes.
 
 For example, let's say we have an application which displays an alert from anywhere in the application. The alert function `displayAlert` resides in the `ApplicationRoute` because it receives the action from any sub-route, controller, or view.
 

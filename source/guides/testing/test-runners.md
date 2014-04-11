@@ -1,4 +1,4 @@
-When it comes to running your tests there are multiple approaches that you can take depending on what best suits your work flow. Finding a low friction method of running your tests is important because it is something that you will be doing quite often.
+When it comes to running your tests there are multiple approaches that you can take depending on what best suits your workflow. Finding a low friction method of running your tests is important because it is something that you will be doing quite often.
 
 ### <a name="browser"></a>The Browser
 

@@ -261,6 +261,8 @@ Testing:
   #   url: "testing/testing-xhr"
   - title: "Automating Tests with Runners"
     url: "testing/test-runners"
+  - title: "Third Party Tools"
+    url: "testing/third-party-tools"
 
 Configuring Ember.js:
   - title: "Disabling Prototype Extensions"
